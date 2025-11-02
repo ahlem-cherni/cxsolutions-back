@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(79, 89, 102, .08) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo h1 {
+    color: #6e9c2f;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6e9c2f;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #6e9c2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #5a8a1a;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-link a {
+    color: #6e9c2f;
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.msg {
+    display: none;
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.msg.ok {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.msg.err {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.sub {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+

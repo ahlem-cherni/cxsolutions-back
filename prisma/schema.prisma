@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  name                String
+  password            String
+  role                Role      @default(USER)
+  resetPasswordToken  String?
+  resetPasswordExpires DateTime?
+  createdAt           DateTime  @default(now())
+
+  // Relations
+  posts               Post[]
+  news                News[]    @relation("NewsAuthor")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model Post {
+  id         Int       @id @default(autoincrement())
+  title      String
+  content    String
+  published  Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+
+  // Relations
+  authorId   Int?
+  author     User?     @relation(fields: [authorId], references: [id])
+}
+
+model News {
+  id         Int       @id @default(autoincrement())
+  title      String
+  date       DateTime  @default(now())
+  authorId   Int?
+  author     User?     @relation("NewsAuthor", fields: [authorId], references: [id])
+  authorName String
+  body       String
+  tags       Json?     // stored as JSON array of strings
+  published  Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Team {
+  id          Int       @id @default(autoincrement())
+  teamName    String    @unique
+  members     Json?     // array of member objects { name, role, photo, email, bio }
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model InternalEvent {
+  id            Int       @id @default(autoincrement())
+  name          String
+  description   String?
+  dateTime      DateTime
+  pricingOptions Json?    // array of strings
+  createdAt     DateTime  @default(now())
+}
+
+model HomepageHighlight {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  image       String?
+  link        String?
+  createdAt   DateTime  @default(now())
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  timeline    String?
+  image       String?
+  link        String?
+  createdAt   DateTime  @default(now())
+}
+
+model ProjectAlt {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  type        String?
+  logo        String?
+  website     String?
+  createdAt   DateTime  @default(now())
+}
