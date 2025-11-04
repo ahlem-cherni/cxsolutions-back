@@ -54,6 +54,10 @@ app.use(adminJs.options.rootPath, scrubMiddleware, (req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {});
+app.listen(PORT, () => {
+  console.log(`\n✓ Server running on port ${PORT}`);
+  console.log(`  Local:   http://localhost:${PORT}`);
+  console.log(`  Admin:   http://localhost:${PORT}/admin\n`);
+});
 
 export default app;
