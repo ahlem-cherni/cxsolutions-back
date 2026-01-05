@@ -16,6 +16,12 @@ import newsRoutes from './routes/news.js';
 import uploadRoutes from './routes/upload.js';
 import pagesRoutes from './routes/pages.js';
 import syncRoutes from './routes/sync.js';
+import teamRoutes from './routes/team.js';
+import projectRoutes from './routes/project.js';
+import projectAltRoutes from './routes/project-alt.js';
+import internalEventRoutes from './routes/internal-event.js';
+import newsletterRoutes from './routes/newsletter.js';
+import homepageHighlightRoutes from './routes/homepage-highlight.js';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 
@@ -31,6 +37,12 @@ connectDatabase().catch(() => {});
 app.use('/api/upload', uploadRoutes);
 app.use('/api', authRoutes);
 app.use('/api/news', newsRoutes);
+app.use('/api/team', teamRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/project-alt', projectAltRoutes);
+app.use('/api/internal-event', internalEventRoutes);
+app.use('/api/newsletter', newsletterRoutes);
+app.use('/api/homepage-highlight', homepageHighlightRoutes);
 app.use('/api', syncRoutes);
 app.use('/', pagesRoutes);
 

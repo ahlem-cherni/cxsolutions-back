@@ -9,7 +9,8 @@ import {
   InternalEvent,
   HomepageHighlight,
   Project,
-  ProjectAlt
+  ProjectAlt,
+  Newsletter
 } from '../models/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +27,20 @@ export const createAdminJS = () => {
           editProperties: ['email', 'name', 'role'],
           filterProperties: ['email', 'name', 'role'],
           showProperties: ['email', 'name', 'role', 'createdAt']
+        }
+      },
+      {
+        resource: Newsletter,
+        options: {
+          navigation: 'Application',
+          listProperties: ['name', 'email', 'createdAt'],
+          editProperties: ['name', 'email'],
+          filterProperties: ['name', 'email'],
+          showProperties: ['name', 'email', 'createdAt'],
+          actions: {
+            new: { isAccessible: false, isVisible: false },
+            edit: { isAccessible: false, isVisible: false }
+          }
         }
       },
       {

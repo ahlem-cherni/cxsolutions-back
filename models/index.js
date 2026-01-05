@@ -6,4 +6,5 @@ export { InternalEvent } from './InternalEvent.js';
 export { HomepageHighlight } from './HomepageHighlight.js';
 export { Project } from './Project.js';
 export { ProjectAlt } from './ProjectAlt.js';
+export { Newsletter } from './Newsletter.js';
 
